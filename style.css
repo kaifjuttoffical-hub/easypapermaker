@@ -1,0 +1,94 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; background: #e9ecef; }
+
+/* ---------- Tabs ---------- */
+.tabs { display: flex; gap: 8px; padding: 12px 15px 0; }
+.tabs button {
+  width: auto; margin: 0; padding: 10px 22px; background: #adb5bd;
+  border-radius: 8px 8px 0 0; font-size: 15px;
+}
+.tabs button.active { background: #0d6efd; }
+.hidden { display: none !important; }
+
+/* ---------- Main layout: left panel + right paper ---------- */
+.app {
+  display: grid;
+  grid-template-columns: 380px minmax(0, 1fr);
+  gap: 15px;
+  padding: 15px;
+  align-items: start;
+}
+
+/* ---------- Left panel ---------- */
+.panel {
+  background: #fff; padding: 15px; border-radius: 8px;
+  max-height: 90vh; overflow-y: auto;
+}
+.panel h3 { margin: 15px 0 8px; color: #0d6efd; }
+.grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+input, select, textarea {
+  width: 100%; padding: 7px; border: 1px solid #bbb;
+  border-radius: 5px; margin-bottom: 6px; font-size: 14px;
+}
+label { display: block; font-size: 13px; margin: 6px 0; }
+button {
+  width: 100%; padding: 10px; border: 0; border-radius: 5px;
+  background: #0d6efd; color: #fff; font-size: 15px;
+  cursor: pointer; margin-top: 6px;
+}
+button.print { background: #198754; }
+button.clear { background: #dc3545; }
+
+.qitem {
+  background: #f1f3f5; padding: 6px; border-radius: 5px;
+  margin-bottom: 5px; font-size: 13px;
+  display: flex; justify-content: space-between; gap: 6px;
+}
+.qitem button { width: auto; padding: 2px 8px; background: #dc3545; margin: 0; }
+
+/* ---------- Right side: paper preview ---------- */
+.preview {
+  min-width: 0;
+  overflow: auto;
+  max-height: 90vh;
+}
+
+/* ---------- Paper page ---------- */
+.page {
+  background: #fff;
+  width: 210mm;
+  min-height: 297mm;
+  margin: 0 auto 15px;
+  padding: 15mm;
+  font-size: 16px;
+  position: relative;
+}
+.page > *:not(.watermark) { position: relative; z-index: 1; }
+.page.rtl {
+  direction: rtl; text-align: right;
+  font-family: "Jameel Noori Nastaleeq", "Noto Nastaliq Urdu", serif;
+  font-size: 20px; line-height: 2;
+}
+.page-title {
+  text-align: center; font-weight: bold; font-size: 18px;
+  border: 2px solid #000; padding: 3px; margin: 10px 0;
+}
+
+.head {
+  display: flex; align-items: center; justify-content: space-between;
+  border-bottom: 2px solid #000; padding-bottom: 8px;
+}
+.head img { width: 80px; height: 80px; object-fit: contain; }
+.head .center { text-align: center; flex: 1; }
+.head h1 { margin: 0; font-size: 26px; }
+.head p, .head h3 { margin: 3px 0; }
+
+.info {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px 15px;
+  margin: 10px 0; border-bottom: 1px solid #000; padding-bottom: 8px;
+}
+
+.sec-title { font-weight: bold; margin: 14px 0 4px; text-decoration: underline; }
+.q { margin: 10px 0; }
+.q .row { display: flex; justify-content: space-between; gap: 10px; }
+.q .text {
